@@ -28,33 +28,33 @@ export default function Dashboard() {
   const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem('zenith_token');
+    const token = localStorage.getItem('Reborn_token');
     if (!token) return navigate('/login');
 
     const payload = parseJwt(token);
     if (!payload || payload.exp * 1000 < Date.now()) {
-      localStorage.removeItem('zenith_token');
+      localStorage.removeItem('Reborn_token');
       return navigate('/login');
     }
 
     const guilds = payload.allowedGuilds || [];
     
     if (guilds.length > 0 && typeof guilds[0] === 'string') {
-      localStorage.removeItem('zenith_token');
+      localStorage.removeItem('Reborn_token');
       alert('Security schema updated. Please log in again.');
       return navigate('/login');
     }
 
     if (guilds.length === 0) {
       alert("Access Denied: You do not have Administrator permissions in any Reborn servers.");
-      localStorage.removeItem('zenith_token');
+      localStorage.removeItem('Reborn_token');
       return navigate('/login');
     }
 
   
     setUser(payload);
 
-    const savedGuild = localStorage.getItem('zenith_guild_id');
+    const savedGuild = localStorage.getItem('Reborn_guild_id');
     if (!savedGuild || savedGuild === 'undefined' || !guilds.some(g => g.id === savedGuild)) {
       setShowLanding(true);
     } else {
@@ -63,7 +63,7 @@ export default function Dashboard() {
   }, [navigate]);
 
   const handleGuildSelect = (guildId) => {
-    localStorage.setItem('zenith_guild_id', guildId);
+    localStorage.setItem('Reborn_guild_id', guildId);
     setSelectedGuild(guildId);
     setShowLanding(false);
   };
@@ -71,7 +71,7 @@ export default function Dashboard() {
   const fetchDashboardData = async () => {
     if (!selectedGuild) return;
     try {
-      const token = localStorage.getItem('zenith_token');
+      const token = localStorage.getItem('Reborn_token');
       const headers = { 'Authorization': `Bearer ${token}` };
       
       const pRes = await fetch(`/api/panels/${selectedGuild}`, { headers });
@@ -135,7 +135,7 @@ export default function Dashboard() {
           <div className="topbar-actions" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             {/* Mobile-Only Server Selector */}
             {selectedGuild && user && (
-              <div className="mobile-guild-selector mobile-only" onClick={() => { localStorage.removeItem('zenith_guild_id'); setShowLanding(true); }}>
+              <div className="mobile-guild-selector mobile-only" onClick={() => { localStorage.removeItem('Reborn_guild_id'); setShowLanding(true); }}>
                 <img 
                   src={user.allowedGuilds.find(g => g.id === selectedGuild)?.icon 
                     ? `https://cdn.discordapp.com/icons/${selectedGuild}/${user.allowedGuilds.find(g => g.id === selectedGuild).icon}.png` 
@@ -149,7 +149,7 @@ export default function Dashboard() {
             <button className="btn-icon" onClick={fetchDashboardData} title="Refresh Data"><i className="fa-solid fa-rotate-right"></i></button>
             
             {/* Mobile-Only Logout */}
-            <button className="btn-icon mobile-only" onClick={() => { localStorage.removeItem('zenith_token'); window.location.href = '/login'; }} title="Log out" style={{ color: '#EF4444' }}><i className="fa-solid fa-power-off"></i></button>
+            <button className="btn-icon mobile-only" onClick={() => { localStorage.removeItem('Reborn_token'); window.location.href = '/login'; }} title="Log out" style={{ color: '#EF4444' }}><i className="fa-solid fa-power-off"></i></button>
           </div>
         </header>
 
