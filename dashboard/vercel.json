@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "http://address:2037/api/:path*"
+    },
+    {
+      "source": "/transcripts/:path*",
+      "destination": "http://address:2037/transcripts/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

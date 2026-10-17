@@ -1,0 +1,23 @@
+{
+    "color": "#2f3136",
+    "prefix": "z!",
+    "botName": "Zenith",
+    "crossmark_emoji": "<:crosss:1483472510573088849>",
+    "checkmark_emoji": "<:check:1483472262567821454>",
+    "loading_emoji": "<a:load:1483473972812316743>",
+    "kick_emoji": "<:kick:1483473870739603666>",
+    "ban_emoji": "<:ban:1483473680930439322>",
+    "warn_emoji": "<:warn:1483473628489060554>",
+    "info_emoji": "<:info:1483471843825553563>",
+    "welcome_emoji": "<a:wavee:1483474174805545062>",
+    "verify_emoji": "<:check:1483472262567821454>",
+    "yt_emoji": "🎬",
+    "category_emojis": {
+        "Info": "<:warn:1483473628489060554>",
+        "Moderation": "<:moderation:1483472835040116738>",
+        "Owner": "<:owner:1483473180109701211>",
+        "Utility": "<:utility:1483473503100338298>",
+        "Other": "<:folder:1483472986223673354>"
+    },
+    "ownerIDs": ["1434858158618054756"]
+}
