@@ -51,7 +51,7 @@ export default function Login() {
             Z
           </span>
         </div>
-        <h2 className="brand-text-glow" style={{ margin: 0, paddingBottom: '5px' }}>ZENITH</h2>
+        <h2 className="brand-text-glow" style={{ margin: 0, paddingBottom: '5px' }}>REBORN</h2>
         <p>Premium Guild Management & Automation</p>
         
         {!status ? (
