@@ -46,11 +46,12 @@ export default function Dashboard() {
     }
 
     if (guilds.length === 0) {
-      alert("Access Denied: You do not have Administrator permissions in any Zenith servers.");
+      alert("Access Denied: You do not have Administrator permissions in any Reborn servers.");
       localStorage.removeItem('zenith_token');
       return navigate('/login');
     }
 
+  
     setUser(payload);
 
     const savedGuild = localStorage.getItem('zenith_guild_id');
