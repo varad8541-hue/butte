@@ -28,7 +28,7 @@ export default function Sidebar({ user, selectedGuild, onSelectGuild, activePage
   return (
     <nav className={`sidebar ${mobileMenuOpen ? 'mobile-open' : ''}`}>
       <div className="sidebar-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-        <h2 className="brand-text-glow">ZENITH</h2>
+        <h2 className="brand-text-glow">REBORN</h2>
         <button 
           className="btn-icon mobile-only" 
           onClick={closeMobileMenu}
